@@ -92,13 +92,24 @@ def save_modified_contact(variant_file, file_name, index_row, index_value, new_v
         print(f"Записm с индексом - {index_row}, ненайдена!")
 
 
-def delete_data_entry(index_row):
-    files = ["data_first_variant.csv", "data_second_variant.csv"]
-    for var_file in range(len(files)):
-        # filename = files[var_file]
-        with open(files[var_file], "r", newline="", encoding="utf-8") as file:
-            reader = csv.reader(file)
-            data_list = list(reader)
+def delete_data_entry(var_file, file_name, index_row):
+    rows = []
+    with open(file_name, "r", newline="", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        list_reader = list(reader)
+        for row in list_reader:
+            rows.append(row)
+        if var_file == 1:
+            step = 5
+            j = index_row
+            for i in range(step):
+                # if list_reader[i] == "\n" or i == len(list_reader) - 1:
+                del rows[j]
+
+    with open(file_name, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+        print("\nЗапись удалена.\n")
 
 
 def search_contact():
@@ -238,5 +249,6 @@ def search_contact():
                     )
                 case "5":
                     delete_data_entry(var_file, filename, index_row)
+                    return
                 case "6":
                     return
