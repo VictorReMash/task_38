@@ -9,11 +9,7 @@ def input_data():
         address_data().title(),
     ]
 
-    # list_contacts = []
-    # list_contacts.append(name_data().title())
-    # list_contacts.append(surname_data().title())
     phone = phone_data()
-    # list_contacts.append(address_data().title())
 
     if not all(list_contacts):
         print(

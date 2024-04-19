@@ -24,7 +24,7 @@ def interface(welcome_message=True):
         if count_iter == 2:
             print("Исчерпан лимин попыток ввода данных. Программа завершена.")
             return
-    # welcome_message = False
+
     match command:
         case "1":
             input_data()
