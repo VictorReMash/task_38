@@ -92,6 +92,15 @@ def save_modified_contact(variant_file, file_name, index_row, index_value, new_v
         print(f"Записm с индексом - {index_row}, ненайдена!")
 
 
+def delete_data_entry(index_row):
+    files = ["data_first_variant.csv", "data_second_variant.csv"]
+    for var_file in range(len(files)):
+        # filename = files[var_file]
+        with open(files[var_file], "r", newline="", encoding="utf-8") as file:
+            reader = csv.reader(file)
+            data_list = list(reader)
+
+
 def search_contact():
     print(
         "Выберите вариант поиска: \n"
@@ -177,14 +186,15 @@ def search_contact():
                 " 2 - Изменить фамилию\n"
                 " 3 - Изменить телефон\n"
                 " 4 - Изменить адрес\n"
-                " 5 - Перейти в главное меню\n"
+                " 5 - Удалить контакт\n"
+                " 6 - Перейти в главное меню\n"
             )
             command = input(
                 "\nВведите номер действия: ",
             )
             count_iter = 0
             index_val = 0
-            while command not in ("1", "2", "3", "4", "5"):
+            while command not in ("1", "2", "3", "4", "5", "6"):
                 print("\nНекорректный ввод данных")
                 command = input("\nВведите номер действия ")
                 count_iter += 1
@@ -227,4 +237,6 @@ def search_contact():
                         input("\nВведите новый адрес: "),
                     )
                 case "5":
+                    delete_data_entry(var_file, filename, index_row)
+                case "6":
                     return
