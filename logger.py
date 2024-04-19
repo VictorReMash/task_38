@@ -93,18 +93,28 @@ def save_modified_contact(variant_file, file_name, index_row, index_value, new_v
 
 
 def delete_data_entry(var_file, file_name, index_row):
+    completion = True
     rows = []
     with open(file_name, "r", newline="", encoding="utf-8") as file:
+
         reader = csv.reader(file)
         list_reader = list(reader)
         for row in list_reader:
             rows.append(row)
-        if var_file == 1:
-            step = 5
-            j = index_row
-            for i in range(step):
-                # if list_reader[i] == "\n" or i == len(list_reader) - 1:
-                del rows[j]
+        # if var_file == 1:
+        # i = index_row
+        # while completion:
+        #     del rows[i]
+        #     if not rows[i]:
+        #         del rows[i]
+        #         completion = False
+        i = index_row
+        while completion:
+            if not rows[i]:
+                del rows[i]
+                completion = False
+            else:
+                del rows[i]
 
     with open(file_name, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
