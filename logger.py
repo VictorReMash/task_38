@@ -101,13 +101,7 @@ def delete_data_entry(var_file, file_name, index_row):
         list_reader = list(reader)
         for row in list_reader:
             rows.append(row)
-        # if var_file == 1:
-        # i = index_row
-        # while completion:
-        #     del rows[i]
-        #     if not rows[i]:
-        #         del rows[i]
-        #         completion = False
+
         i = index_row
         while completion:
             if not rows[i]:
