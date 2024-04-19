@@ -9,9 +9,9 @@ def interface(welcome_message=True):
         )
     print(
         f" {message}"
-        f" 1 - запись данных \n"
-        f" 2 - вывод данных \n"
-        f" 3 - Редактироввание данных \n"
+        f" 1 - Запись данных \n"
+        f" 2 - Вывод данных \n"
+        f" 3 - Поиск и редактироввание данных \n"
         f" 4 - Выход"
     )
     welcome_message = False
