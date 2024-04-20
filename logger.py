@@ -88,7 +88,7 @@ def save_modified_contact(variant_file, file_name, index_row, index_value, new_v
         print(f"Записm с индексом - {index_row}, ненайдена!")
 
 
-def delete_data_entry(var_file, file_name, index_row):
+def delete_data_entry(file_name, index_row):
     completion = True
     rows = []
     with open(file_name, "r", newline="", encoding="utf-8") as file:
@@ -248,7 +248,7 @@ def search_contact():
                         input("\nВведите новый адрес: "),
                     )
                 case "5":
-                    delete_data_entry(var_file, filename, index_row)
+                    delete_data_entry(filename, index_row)
                     return
                 case "6":
                     return
